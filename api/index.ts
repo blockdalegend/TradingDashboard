@@ -1,6 +1,6 @@
 import express from 'express'
 import { restClient } from '@polygon.io/client-js';
-const rest = restClient("TRZr_BsjnRpNcpqbx1BUnTGzlYOt7ZlB");
+const rest = restClient(process.env.POLYGON_API_KEY);
 const app = express();
 
 app.get('/', (req, res) => {
