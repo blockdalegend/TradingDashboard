@@ -5,26 +5,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var client_js_1 = require("@polygon.io/client-js");
-var rest = (0, client_js_1.restClient)("TRZr_BsjnRpNcpqbx1BUnTGzlYOt7ZlB");
+var rest = (0, client_js_1.restClient)(process.env.POLYGON_API_KEY);
 var app = (0, express_1.default)();
 app.get('/', function (req, res) {
     res.send("You're not supposed to be here!");
 });
 app.get('/stock/:ticker', function (req, res) {
-    rest.stocksEquitiesSnapshotAllTickers(req.params.ticker)
-        .then(function (response) { 
-            let sanitizedResponse = JSON.stringify(response).replace(/<\/*[a-z][a-z0-9]*>/gi, ''); // sanitize the response
-            return res.send(sanitizedResponse); 
-        }).catch(function (e) {
+    rest.reference.tickerDetails(req.params.ticker)
+        .then(function (response) { return res.send(response); }).catch(function (e) {
         console.error('An error happened:', e);
     });
 });
 app.get('/stocknews/:ticker', function (req, res) {
     rest.reference.tickerNews({ ticker: req.params.ticker })
-        .then(function (response) { 
-            let sanitizedResponse = JSON.stringify(response);
-            return res.send(sanitizedResponse); 
-        }).catch(function (e) {
+        .then(function (response) { return res.send(response); }).catch(function (e) {
         console.error('An error happened:', e);
     });
 });
@@ -50,8 +44,6 @@ app.get('/options/:ticker/:type', function (req, res) {
         else {
             res.status(500).send('Data is undefined');
         }
-    }).catch(error => {
-        return error;
     });
 });
 app.get('/options/:type', function (req, res) {
@@ -70,8 +62,6 @@ app.get('/options/:type', function (req, res) {
         else {
             res.status(500).send('Data is undefined');
         }
-    }).catch(error => {
-        return error;
     });
 });
 app.get('/politiciandata', function (req, res) {
