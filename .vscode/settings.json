@@ -1,4 +1,4 @@
 {
     "appService.defaultWebAppToDeploy": "/subscriptions/463f0dcf-6d32-417d-9ce1-adf76e1c6dd9/resourceGroups/personalstore/providers/Microsoft.Storage/storageAccounts/jakora/subscriptions/463f0dcf-6d32-417d-9ce1-adf76e1c6dd9/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/omnifitradingbackend",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": "./api"
 }
