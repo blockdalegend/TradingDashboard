@@ -146,10 +146,6 @@ app.get('/politiciandatabytype/:type', (req, res) => {
     .catch(err => console.log(err));
 });
 
-
-
-
-
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`App listening on PORT ${port}`));
