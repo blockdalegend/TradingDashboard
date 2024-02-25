@@ -6,7 +6,6 @@ node_modules/
 
 # Ignore the build directory
 dist/
-api/dist/
 
 # Ignore .env files
 .env
@@ -16,3 +15,4 @@ api/dist/
 
 # Ignore .DS files
 .DS_Store
+api/dist/
