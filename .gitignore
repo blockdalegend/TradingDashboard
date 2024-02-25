@@ -6,6 +6,7 @@ node_modules/
 
 # Ignore the build directory
 dist/
+api/dist/
 
 # Ignore .env files
 .env
