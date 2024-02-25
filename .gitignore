@@ -12,3 +12,6 @@ dist/
 
 # Ignore .vs directory
 .vs
+
+# Ignore .DS files
+.DS_Store
