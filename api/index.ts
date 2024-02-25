@@ -36,7 +36,7 @@ app.get('/options/:ticker/:type', (req, res) => {
                 res.send(data.results);
             } else {
                 // Assuming data.results is the array of objects and each object has a 'type' property
-                const filteredData = data.results.filter(item => item.contract_type == req.params.type);
+                const filteredData = data.results.filter((item:any) => item.contract_type == req.params.type);
                 res.send(filteredData);
             }
         } else {
@@ -53,7 +53,7 @@ app.get('/options/:type', (req, res) => {
                 res.send(data.results);
             } else {
                 // Assuming data.results is the array of objects and each object has a 'type' property
-                const filteredData = data.results.filter(item => item.contract_type == req.params.type);
+                const filteredData = data.results.filter((item:any) => item.contract_type == req.params.type);
                 res.send(filteredData);
             }
         } else {
@@ -74,7 +74,7 @@ app.get('/politiciandata/:name', (req, res) => {
     .then(response => response.json())
     .then(data => {
         // Assuming data is an array of objects and each object has a 'name' property
-        const filteredData = data.filter(item => item.senator === req.params.name);
+        const filteredData = data.filter((item:any) => item.senator === req.params.name);
         res.send(filteredData);
     })
     .catch(err => console.log(err));
@@ -85,7 +85,7 @@ app.get('/politiciandatabyparty/:party', (req, res) => {
     .then(response => response.json())
     .then(data => {
         // Assuming data is an array of objects and each object has a 'name' property
-        const filteredData = data.filter(item => item.party === req.params.party);
+        const filteredData = data.filter((item:any) => item.party === req.params.party);
         res.send(filteredData);
     })
     .catch(err => console.log(err));
@@ -96,7 +96,7 @@ app.get('/politiciandatabystate/:state', (req, res) => {
     .then(response => response.json())
     .then(data => {
         // Assuming data is an array of objects and each object has a 'name' property
-        const filteredData = data.filter(item => item.state === req.params.state);
+        const filteredData = data.filter((item:any) => item.state === req.params.state);
         res.send(filteredData);
     })
     .catch(err => console.log(err));
@@ -107,7 +107,7 @@ app.get('/politiciandatabytransaction/:transaction', (req, res) => {
     .then(response => response.json())
     .then(data => {
         // Assuming data is an array of objects and each object has a 'name' property
-        const filteredData = data.filter(item => item.transaction === req.params.transaction);
+        const filteredData = data.filter((item:any) => item.transaction === req.params.transaction);
         res.send(filteredData);
     })
     .catch(err => console.log(err));
@@ -118,7 +118,7 @@ app.get('/politiciandatabydate/:date', (req, res) => {
     .then(response => response.json())
     .then(data => {
         // Assuming data is an array of objects and each object has a 'name' property
-        const filteredData = data.filter(item => item.date === req.params.date);
+        const filteredData = data.filter((item:any) => item.date === req.params.date);
         res.send(filteredData);
     })
     .catch(err => console.log(err));
@@ -129,7 +129,7 @@ app.get('/politiciandatabyticker/:ticker', (req, res) => {
     .then(response => response.json())
     .then(data => {
         // Assuming data is an array of objects and each object has a 'name' property
-        const filteredData = data.filter(item => item.ticker === req.params.ticker);
+        const filteredData = data.filter((item: any) => item.ticker === req.params.ticker);
         res.send(filteredData);
     })
     .catch(err => console.log(err));
@@ -140,7 +140,7 @@ app.get('/politiciandatabytype/:type', (req, res) => {
     .then(response => response.json())
     .then(data => {
         // Assuming data is an array of objects and each object has a 'name' property
-        const filteredData = data.filter(item => item.type === req.params.type);
+        const filteredData = data.filter((item: any) => item.type === req.params.type);
         res.send(filteredData);
     })
     .catch(err => console.log(err));
